@@ -1,6 +1,4 @@
 package finaltest;
-
-
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -26,6 +24,7 @@ public class Main {
 
     }
     reader.close();
+    
     FileWriter writer = new FileWriter("new_DB_students.csv");
     writer.write("student_id, course_id\n");
     for (List<String> list : map.values()) {
