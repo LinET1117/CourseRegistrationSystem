@@ -1,16 +1,13 @@
 package finaltest;
 import java.util.Scanner;
-import java.util.Set;
-import java.util.TreeSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
-import java.io.BufferedReader;
+
 
 public class AddCourse {
 
@@ -54,7 +51,7 @@ public static void main(String[] args) throws Exception {
     }
     addcourse.close();
     
-    
+    System.out.println("File operation performed successfully.");
     
 /*___________________________________________________________________*/
     /*BufferedReader reader1 = new BufferedReader(new FileReader("add_students(加入學生 尚未排序).csv"));

@@ -36,7 +36,7 @@ public class AddCourseSwitch {
     writer.close();
     
     
-    
+    System.out.println("File operation performed successfully.");    
     
 }
 

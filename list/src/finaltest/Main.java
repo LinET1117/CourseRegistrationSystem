@@ -34,7 +34,7 @@ public class Main {
         }
     }
     writer.close();
-    
+    System.out.println("File operation performed successfully.");
   }
     
     /*FileWriter writer2 = new FileWriter("new_delete_DB_student(刪除過後的資料學生 已排序).csv");
