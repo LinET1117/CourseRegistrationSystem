@@ -10,7 +10,7 @@ import java.util.TreeMap;
 public class AddCourseSwitch {
 
   public static void main(String[] args) throws Exception {
-    BufferedReader reader = new BufferedReader(new FileReader("add_students(加入學生 已排序).csv"));
+    BufferedReader reader = new BufferedReader(new FileReader("new_DB_students.csv"));
     Map<String, List<String>> map = new TreeMap<String, List<String>>();
     String line = reader.readLine();//read header
     while ((line = reader.readLine()) != null) {
@@ -25,7 +25,7 @@ public class AddCourseSwitch {
     }
     reader.close();
     
-    FileWriter writer = new FileWriter("add_students(加入學生 已排序).csv");
+    FileWriter writer = new FileWriter("new_DB_students.csv");
     writer.write("student_id, course_id\n");
     for (List<String> list : map.values()) {
         for (String val : list) {
@@ -34,6 +34,10 @@ public class AddCourseSwitch {
         }
     }
     writer.close();
+    
+    
+    
+    
 }
 
 private static String getField(String line) {
@@ -41,4 +45,3 @@ private static String getField(String line) {
 }
 
 }
-

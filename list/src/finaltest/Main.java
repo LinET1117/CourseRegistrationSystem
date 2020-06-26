@@ -34,7 +34,19 @@ public class Main {
         }
     }
     writer.close();
-}
+    
+  }
+    
+    /*FileWriter writer2 = new FileWriter("new_delete_DB_student(刪除過後的資料學生 已排序).csv");
+    writer2.write("student_id, course_id\n");
+    for (List<String> list : map.values()) {
+        for (String val : list) {
+            writer2.write(val);
+            writer2.write("\n");
+        }
+    }
+    writer2.close();
+}*/
 
 private static String getField(String line) {
     return line.split(",")[0];// extract value you want to sort on

@@ -1,6 +1,13 @@
 package finaltest;
 import java.io.*; 
 import java.util.HashSet; 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class DeleteCourse {
 
@@ -22,7 +29,7 @@ public class DeleteCourse {
         } 
                       
         // BufferedReader object for add_students(加入學生 已排序).csv 
-        BufferedReader br1 = new BufferedReader(new FileReader("add_students(加入學生 已排序).csv")); 
+        BufferedReader br1 = new BufferedReader(new FileReader("new_DB_students.csv")); 
           
         String line1 = br1.readLine(); 
           
@@ -46,5 +53,9 @@ public class DeleteCourse {
           
         System.out.println("File operation performed successfully"); 
 	}
+	
+	
+	
+	
 
 }

@@ -18,7 +18,7 @@ public class AddCourse {
 public static void main(String[] args) throws Exception {
 	Map<String, List<String>> map = new TreeMap<String, List<String>>();
 	
-    BufferedReader reader = new BufferedReader(new FileReader("add_students(加入學生 已排序).csv"));
+    BufferedReader reader = new BufferedReader(new FileReader("new_DB_students.csv"));
     String line = reader.readLine();//read header
     while ((line = reader.readLine()) != null) {
         String key = getField(line);
@@ -32,7 +32,7 @@ public static void main(String[] args) throws Exception {
     reader.close();
     
 /*___________________________________________________________________*/
-    FileWriter addcourse = new FileWriter("add_students(加入學生 已排序).csv");
+    FileWriter addcourse = new FileWriter("new_DB_students.csv");
     addcourse.write("student_id, course_id\n");
     System.out.println("please input number: ");
     Scanner in = new Scanner(System.in);
@@ -54,8 +54,10 @@ public static void main(String[] args) throws Exception {
     }
     addcourse.close();
     
+    
+    
 /*___________________________________________________________________*/
-    BufferedReader reader1 = new BufferedReader(new FileReader("add_students(加入學生 尚未排序).csv"));
+    /*BufferedReader reader1 = new BufferedReader(new FileReader("add_students(加入學生 尚未排序).csv"));
     String line1 = reader1.readLine();//read header
     while ((line1 = reader1.readLine()) != null) {
         String key = getField(line1);
@@ -66,7 +68,7 @@ public static void main(String[] args) throws Exception {
         }
         l.add(line1);
     }
-    reader1.close();
+    reader1.close();*/
 }
 
 
