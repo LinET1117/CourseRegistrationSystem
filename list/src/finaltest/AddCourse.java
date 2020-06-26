@@ -1,5 +1,7 @@
 package finaltest;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -11,26 +13,11 @@ import java.util.TreeMap;
 
 public class AddCourse {
 
-  private static String list;
-  private static String val;
 
 public static void main(String[] args) throws Exception {
 	Map<String, List<String>> map = new TreeMap<String, List<String>>();
 	
-	
-    FileWriter add = new FileWriter("test.csv");
-    System.out.println("please input number: ");
-    Scanner in = new Scanner(System.in);
-    ArrayList<String> input = new ArrayList<String>();
-    input.add(in.nextLine());
-    input.add(in.nextLine());
-
-    for (String val : input) {
-         add.write(val);
-         add.write("\n");
-    }
-    
-    /*BufferedReader reader = new BufferedReader(new FileReader("DB_students.csv"));
+    BufferedReader reader = new BufferedReader(new FileReader("DB_students.csv"));
     String line = reader.readLine();//read header
     while ((line = reader.readLine()) != null) {
         String key = getField(line);
@@ -43,18 +30,30 @@ public static void main(String[] args) throws Exception {
     }
     reader.close();
     
+/*___________________________________________________________________*/
+    FileWriter addcourse = new FileWriter("add_students.csv");
+    addcourse.write("student_id, course_id\n");
+    System.out.println("please input number: ");
+    Scanner in = new Scanner(System.in);
+    List<String> input = new LinkedList<String>();
+    input.add(in.next());
 
-    FileWriter writer = new FileWriter("new_DB_students.csv");
-    writer.write("student_id, course_id\n");
+    for (String val : input) {
+    	addcourse.write(val);
+    	addcourse.write("\n");
+    }
+    in.close();
+    
     for (List<String> list : map.values()) {
         for (String val : list) {
-            writer.write(val);
-            writer.write("\n");
+        	addcourse.write(val);
+        	addcourse.write("\n");
         }
+        
     }
-    writer.close();*/
+    addcourse.close();
 }
-
+/*___________________________________________________________________*/
 private static String getField(String line) {
     return line.split(",")[0];// extract value you want to sort on
 }
