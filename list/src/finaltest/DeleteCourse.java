@@ -14,26 +14,26 @@ public class DeleteCourse {
         BufferedReader br2 = new BufferedReader(new FileReader("delete(想要刪除的資料).txt"));  
         String line2 = br2.readLine(); 
           
-        // hashset for storing lines of delete.csv 
+        // hashset for storing lines of delete.txt
         HashSet<String> hs = new HashSet<String>(); 
           
-        // loop for each line of delete.csv
+        // loop for each line of delete.txt
         while(line2 != null) 
         { 
             hs.add(line2); 
             line2 = br2.readLine(); 
         } 
                       
-        // BufferedReader object for add_students(加入學生 已排序).csv 
+        // BufferedReader object for new_DB_students.csv 
         BufferedReader br1 = new BufferedReader(new FileReader("new_DB_students.csv")); 
           
         String line1 = br1.readLine(); 
           
-        // loop for each line of add_students(加入學生 已排序).csv
+        // loop for each line of new_DB_students.csv
         while(line1 != null) 
         { 
-            // if line is not present in delete.csv 
-            // write it to new_delete_DB_student.csv 
+            // if line is not present in delete.txt 
+            // write it to new_delete_DB_student(刪除過後的資料學生 已排序).csv 
             if(!hs.contains(line1)) 
                 pw.println(line1); 
               
