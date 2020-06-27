@@ -3,35 +3,64 @@ package finaltest;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.RandomAccessFile;
+import java.util.Scanner;
 
 public class Search {
-  
-  String filename;
-  
-  public Search (String filename) {
-    this.filename = filename;
+
+  String filename = "new_DB_students.csv";
+
+  public void main(String[] args) throws IOException {
+
+    Scanner input = new Scanner(System.in);
+
+    int option = 0;
+
+    while (true) {
+
+      System.out.println("1.Search the student what courses did he/she choose");
+      System.out.println("2.Search the course how many stduent choose");
+      System.out.println("3.Exit");
+      System.out.print("Option : ");
+
+      option = input.nextInt();
+
+      if (option == 1) {
+
+        System.out.print("Input the stduent's id : ");
+        searchColunm("student_id", input.next());
+
+      } else if (option == 2) {
+
+        System.out.print("Input the course's id : ");
+        searchColunm("course_id", input.next());
+
+      } else if (option == 3) {
+
+        break;
+
+      } else {
+
+        System.out.println("input error");
+        continue;
+
+      }
+      input.close();
+    }
+
   }
 
-  public long searchRow(String column1, String colunm2) throws IOException {
+  public void searchRow(String column1, String colunm2) throws IOException {
 
     try {
       RandomAccessFile file = new RandomAccessFile(filename, "r");
 
       file.readLine();
 
-      long pointer = 0;
-
-      long prepointer = 0;
-
       String[] result;
 
       String row;
 
       while ((row = file.readLine()) != null) {
-
-        prepointer = pointer;
-
-        pointer = file.getFilePointer();
 
         result = row.split(",");
 
@@ -45,17 +74,14 @@ public class Search {
 
       file.close();
 
-      return prepointer;
-
     } catch (FileNotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-      return 0;
     }
 
   }
 
-  public int searchColunm(String columnName, String columnValue) throws IOException {
+  public void searchColunm(String columnName, String columnValue) throws IOException {
 
     try {
       RandomAccessFile file = new RandomAccessFile(filename, "r");
@@ -65,17 +91,17 @@ public class Search {
       int num = 0;
 
       for (int i = 0; i < column.length; i++) {
-        
+
         System.out.printf("%s\t", column[i]);
 
-        if ( column[i].equals(columnName) ) {
+        if (column[i].equals(columnName)) {
           num = i;
         }
-        
+
       }
 
       System.out.println("");
-      
+
       int count = 0;
 
       String line;
@@ -95,12 +121,11 @@ public class Search {
 
       file.close();
 
-      return count;
+      System.out.println(count);
 
     } catch (FileNotFoundException e) {
       // TODO Auto-generated catch block
       e.printStackTrace();
-      return 0;
     }
 
   }
