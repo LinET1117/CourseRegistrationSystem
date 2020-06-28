@@ -42,19 +42,12 @@ public static void main(String[] args) throws Exception {
     }
     in.close();
     
-    for (List<String> list : map.values()) {
-        for (String val : list) {
-        	addcourse.write(val);
-        	addcourse.write("\n");
-        }
-        
-    }
     addcourse.close();
     
     System.out.println("File operation performed successfully.");
     
 /*___________________________________________________________________*/
-    /*BufferedReader reader1 = new BufferedReader(new FileReader("add_students(加入學生 尚未排序).csv"));
+    BufferedReader reader1 = new BufferedReader(new FileReader("new_DB_students.csv"));
     String line1 = reader1.readLine();//read header
     while ((line1 = reader1.readLine()) != null) {
         String key = getField(line1);
@@ -65,7 +58,17 @@ public static void main(String[] args) throws Exception {
         }
         l.add(line1);
     }
-    reader1.close();*/
+    reader1.close();
+    
+    FileWriter writer = new FileWriter("new_DB_students.csv");
+    writer.write("student_id, course_id\n");
+    for (List<String> list : map.values()) {
+        for (String val : list) {
+            writer.write(val);
+            writer.write("\n");
+        }
+    }
+    writer.close();
 }
 
 

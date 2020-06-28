@@ -1,6 +1,6 @@
 package finaltest;
 import java.io.*; 
-import java.util.HashSet; 
+import java.util.HashSet;
 import java.io.BufferedReader;
 import java.io.FileReader;
 
@@ -11,9 +11,11 @@ public class DeleteCourse {
 		// TODO 自動產生的方法 Stub
  
         PrintWriter pw = new PrintWriter("new_delete_DB_student(刪除過後的資料學生 已排序).csv");  
-        BufferedReader br2 = new BufferedReader(new FileReader("delete(想要刪除的資料).txt"));  
+        BufferedReader br2 = new BufferedReader(new FileReader("delete(想要刪除的資料).txt"));
         String line2 = br2.readLine(); 
-          
+
+
+        
         // hashset for storing lines of delete.txt
         HashSet<String> hs = new HashSet<String>(); 
           
